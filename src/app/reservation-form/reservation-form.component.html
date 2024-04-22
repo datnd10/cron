@@ -1,0 +1,45 @@
+<!-- <app-home></app-home>
+
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="checkInDate">Check In Date</label>
+        <input type="date" id="checkInDate" formControlName="checkInDate">
+        <p *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">Check in
+            date is required</p>
+    </div>
+    <div>
+        <label for="checkOutDate">Check Out Date</label>
+        <input type="date" id="checkOutDate" formControlName="checkOutDate">
+        <p *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">Check
+            out date is required</p>
+    </div>
+    <div>
+        <label for="guestName">Guest Name</label>
+        <input type="text" id="guestName" formControlName="guestName">
+        <p *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">Guest name is
+            required</p>
+    </div>
+    <div>
+        <label for="guestEmail">Guest Email</label>
+        <input type="email" id="guestEmail" formControlName="guestEmail">
+        <p *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">Guest email
+            is required</p>
+    </div>
+    <div>
+        <label for="roomNumber">Room Number</label>
+        <input type="number" id="roomNumber" formControlName="roomNumber">
+        <p *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Room number
+            is required</p>
+    </div>
+    <div>
+        <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
+        <button (click)="validateCron()">Validate</button>
+        <div *ngIf="validationMessage">{{ validationMessage }}</div>
+    </div>
+    <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
+</form> -->
+<div>
+    <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
+    <button (click)="validateCron()">Validate</button>
+    <div *ngIf="validationMessage">{{ validationMessage }}</div>
+  </div>
