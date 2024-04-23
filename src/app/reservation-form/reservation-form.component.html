@@ -38,8 +38,110 @@
     </div>
     <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
 </form> -->
-<div>
+<!-- <div>
     <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
     <button (click)="validateCron()">Validate</button>
     <div *ngIf="validationMessage">{{ validationMessage }}</div>
-  </div>
+  </div> -->
+
+<div style="display: flex; justify-items: auto;">
+    <div class="col-md-2">
+        <p class="font-weight-bolder">Second</p>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let second of seconds">
+                <div class="mr-2">
+                    <input type="checkbox" [id]="'second' + second" [value]="second"
+                        [checked]="selectedSeconds.includes(second)" (change)="toggleSelectionSecond(second)"
+                        class="hiddenCheckbox" />
+
+                    <label [for]="'second' + second" style="cursor: pointer; text-align: center; padding: 10px;">{{
+                        second
+                        }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <p class="font-weight-bolder">minute</p>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let minute of minutes; let i = index">
+                <div class="mr-2">
+                    <input type="checkbox" [id]="'minute' + minute" [value]="minute" [checked]="selectedMinutes.includes(minute)"
+                        (change)="toggleSelectionMinute(minute)" class="hiddenCheckbox" />
+                    <label [for]="'minute' + minute" style="cursor: pointer; text-align: center; padding: 10px;">{{
+                        minute
+                        }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <p class="font-weight-bolder">Hours:</p>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let hour of hours">
+                <div class="mr-2">
+                    <input type="checkbox" [id]="'hour' + hour" [value]="hour" (change)="toggleSelectionHour(hour)" [checked]="selectedHours.includes(hour)"
+                        class="hiddenCheckbox" />
+
+                    <label [for]="'hour' + hour" style="cursor: pointer; text-align: center; padding: 10px;">{{
+                        hour
+                        }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <p class="font-weight-bolder">Day:</p>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let day of days; let i = index">
+                <div class="mr-2">
+                    <input type="checkbox" [id]="'day' + day" [value]="day" [checked]="selectedDays.includes(day)"
+                    (change)="toggleSelection(day, 'day')"
+                        class="hiddenCheckbox" />
+                    <label [for]="'day' + day" style="cursor: pointer; text-align: center; padding: 10px;">{{
+                        day
+                        }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <p class="font-weight-bolder">Month:</p>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let month of months">
+                <div class="mr-2">
+                    <input type="checkbox" [id]="'month' + month" [value]="month" [checked]="selectedMonths.includes(month)"
+                     (change)="toggleSelectionMonth(month)"
+                        class="hiddenCheckbox" />
+
+                    <label [for]="'month' + month" style="cursor: pointer; text-align: center; padding: 10px;">{{
+                        month
+                        }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-2">
+        <p class="font-weight-bolder">Day:</p>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let date of dates">
+                <div class="mr-2">
+                    <input type="checkbox" [id]="'date' + date" [value]="date" (change)="toggleSelection(date, 'date')" [checked]="selectedDates.includes(date)"
+                        class="hiddenCheckbox" />
+                    <label [for]="'date' + date" style="cursor: pointer; text-align: center; padding: 10px;">
+                        {{ getDayName(date) }} ({{ date }})
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="submit()">Validate</button>
+
+</div>
