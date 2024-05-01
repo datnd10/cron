@@ -9,6 +9,7 @@ import { Reservation } from '../models/reservation';
 export class ReservationListComponent implements OnInit {
 
   reservations: Reservation[] = [];
+  students: any[] = [];
 
   constructor(private reservationService: ReservationService) {
     
@@ -16,6 +17,9 @@ export class ReservationListComponent implements OnInit {
 
   ngOnInit(): void {
    this.reservationService.getAllReservations().subscribe(reservations => this.reservations = reservations);
+   this.reservationService.getAllStudents().subscribe(students => this.students = students);
+   console.log(this.students);
+   
   }
   
   deleteReservation(id: number): void {

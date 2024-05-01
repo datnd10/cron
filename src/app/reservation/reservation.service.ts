@@ -22,6 +22,8 @@ export class ReservationService {
   } 
 
   addReservation(reservation: Reservation): Observable<void> {
+    console.log(reservation);
+    
     return this.http.post<void>(`${this.apiUrl}/reservation`, reservation);
   }
 
@@ -32,5 +34,8 @@ export class ReservationService {
   updateReservation(id: string, reservation: Reservation): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/reservation/${id}`, reservation);
   }
-  
+
+  getAllStudents(): Observable<any[]> {   
+    return this.http.get<any[]>(`http://localhost:8080/student`);
+  }
 }

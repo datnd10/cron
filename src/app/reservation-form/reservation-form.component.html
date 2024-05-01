@@ -1,4 +1,4 @@
-<!-- <app-home></app-home>
+<app-home></app-home>
 
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
     <div>
@@ -21,7 +21,7 @@
     </div>
     <div>
         <label for="guestEmail">Guest Email</label>
-        <input type="email" id="guestEmail" formControlName="guestEmail">
+        <input type="text" id="guestEmail" formControlName="guestEmail">
         <p *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">Guest email
             is required</p>
     </div>
@@ -31,20 +31,20 @@
         <p *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Room number
             is required</p>
     </div>
-    <div>
+    <!-- <div>
         <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
         <button (click)="validateCron()">Validate</button>
         <div *ngIf="validationMessage">{{ validationMessage }}</div>
-    </div>
+    </div> -->
     <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
-</form> -->
+</form>
 <!-- <div>
     <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
     <button (click)="validateCron()">Validate</button>
     <div *ngIf="validationMessage">{{ validationMessage }}</div>
   </div> -->
 
-<div style="display: flex; justify-items: auto;">
+<!-- <div style="display: flex; justify-items: auto;">
     <div class="col-md-2">
         <p class="font-weight-bolder">Second</p>
         <div class="d-flex flex-wrap">
@@ -144,4 +144,4 @@
     </div>
     <button (click)="submit()">Validate</button>
 
-</div>
+</div> -->
