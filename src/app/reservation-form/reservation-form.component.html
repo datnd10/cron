@@ -31,13 +31,58 @@
         <p *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Room number
             is required</p>
     </div>
-    <!-- <div>
-        <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
-        <button (click)="validateCron()">Validate</button>
-        <div *ngIf="validationMessage">{{ validationMessage }}</div>
-    </div> -->
     <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
 </form>
+
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="checkInDate">Check In Date</label>
+        <input type="date" id="checkInDate" formControlName="checkInDate">
+    </div>
+    <div>
+        <label for="checkOutDate">Check Out Date</label>
+        <input type="date" id="checkOutDate" formControlName="checkOutDate">
+    </div>
+    <div>
+        <label for="guestName">Guest Name</label>
+        <input type="text" id="guestName" formControlName="guestName">
+    </div>
+    <div>
+        <label for="guestEmail">Guest Email</label>
+        <input type="text" id="guestEmail" formControlName="guestEmail">
+    </div>
+    <div>
+        <label for="roomNumber">Room Number</label>
+        <input type="number" id="roomNumber" formControlName="roomNumber">
+    </div>
+    <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
+</form>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <button (click)="testSubmit()" [attr.data-dismiss]="isDelete ? 'modal' : null">submit</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- <div>
     <input type="text" [(ngModel)]="cronValue" placeholder="Nhập chuỗi cron">
     <button (click)="validateCron()">Validate</button>
